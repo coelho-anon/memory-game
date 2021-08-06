@@ -1,0 +1,161 @@
+
+
+#main{
+  transition: 0.4s;
+  background-color: #2196f3;
+  box-shadow: 0px 6px 8px 0px black;
+  padding-bottom: 1%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#abrir-nav{
+  font-size: 3em;
+  background-color: transparent;
+  border: none;
+  transition: 1.4s;
+}
+
+#fechar-nav{
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-size: 3.5em;
+  margin-left: 80%;
+  margin-top: 5%;
+  transition: 0.2s;
+  }
+  
+#mynav{
+  background-color: #2196f3;
+  width: 0%;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow-x: hidden;
+  transition: 0.2s;
+}
+
+.link_btn{
+  text-decoration: none;
+}
+
+.btn-nav{
+  font-weight: bolder;
+  display: block;
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-size: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  transition: 0.2s;
+  width: 100%;
+}
+
+.btn-nav:hover, 
+#abrir-nav:hover, 
+#fechar-nav:hover{
+  color: white;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.btn-nav:hover{
+  transition: .2s;
+  font-size: 2.2em;
+}
+
+#fechar-nav:hover{
+  color: red;
+  transition: 0.2s;
+  font-size: 4.5em;
+}
+
+
+#music_sound_container{
+  display: flex;
+  justify-content: space-around;
+  transform: scale(.8);
+}
+
+  #music_icon{
+    background-image: url('../images/audioOn.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 100px;
+    height: 100px;
+    transition: .2s;
+  }
+
+  #sound_icon{
+    background-image: url('../images/musicOn.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 100px;
+    height: 100px;
+    transition: .2s;
+  }
+
+  #music_icon:hover, #sound_icon:hover{
+    cursor: pointer;
+    transition: .2s;
+    transform: scale(1.1);
+  }
+
+
+#container_level{
+/*  margin-right: 1%;*/
+}
+
+.container_progress{
+  width: 300px;
+  height: 30px;
+  margin-top: 6.5%;
+  background-color: grey;
+  display: inline-block;
+  border-radius: 10px;
+}
+  #LVL{
+    padding: 0px;
+    float: left;
+  }
+
+  .progress_bar{
+    background-color: #0bef2d;
+    border-radius: 10px;
+    width: 0%;
+    height: 100%;
+  }
+
+
+
+
+
+#time_countainer{
+  margin-right: 2%;
+}
+
+  #pause_play_btn{
+    font-size: .7em;
+    background-color: #1d56ad;
+    border: none;
+    font-weight: bolder;
+    border-radius: 5px;
+    transition: .2s;
+  }
+
+  #pause_play_btn:hover{
+    color: white;
+    cursor: pointer;
+    background-color: #ff5722;
+    transition: .2s;
+  }

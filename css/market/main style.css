@@ -1,0 +1,118 @@
+
+	/*scroll bar width */
+	::-webkit-scrollbar {
+	  width: 9px;
+	  scroll-behavior: smooth;
+	}
+
+	/*scroll bar Track */
+	::-webkit-scrollbar-track {
+	  background-color: grey;
+	}
+
+	/*scroll bar Handle */
+	::-webkit-scrollbar-thumb {
+	  background: #272222;
+	  border-radius: 30px;
+	  transition: .2s;
+	}
+
+	/*scroll bar Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+	  background: black;
+	  transition: .2s;
+	}
+
+		body{
+			margin: 0px;
+			padding: 0px;
+		}
+
+		#close_market{
+			background-color: #1d56ad;
+			border-radius: 0px 5px 5px 0px;
+			color: white;
+			border: none;
+			font-size: 2.5em;
+			margin-top: 8%;
+			transition: 0.2s;
+		}
+
+		#close_market:hover{
+			color: black;
+			background-color: #2196f3;
+			font-size: 2.8em;
+			transition: .2s;
+			cursor: pointer;
+		}
+
+
+		#header_menu{
+		  background-color: white;
+		  box-shadow: 0px 6px 8px 0px black;
+		  padding-bottom: 1%;
+		  width: 100%;
+		  display: flex;
+		  justify-content: space-between;
+		}
+
+		#container_level{
+		  margin-right: 1%;
+		}
+
+		.container_progress{
+		  width: 300px;
+		  height: 30px;
+		  margin-top: 6.5%;
+		  background-color: grey;
+		  display: inline-block;
+		  border-radius: 10px;
+		}
+		  #LVL{
+		    padding: 0px;
+		    float: left;
+		  }
+
+		  .progress_bar{
+		    background-color: green;
+		    border-radius: 10px;
+		    width: 0%;
+		    height: 100%;
+		  }
+
+		#market_container{
+			transform: scale(1);
+			width: 100%;
+			height: 85%;
+			background-image: url('bg-shop.png');
+			background-size: 100%;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			margin-top: 1%;
+			padding-bottom: 5%;
+		}
+
+			#row_menu{
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+			}
+
+				.menu_btn{
+					border: none;
+					border-left: 2px solid black;
+					color: white;
+					font-size: 3em;
+					background-color: #1d56ad;
+					transition: .3s;
+					-ms-flex: 1 1 auto !important;
+  	  				flex: 1 1 auto !important;
+				}
+
+				.menu_btn:hover{
+					background-color: #2196f3;
+					transition: .3s;
+					cursor: pointer;
+				}
+

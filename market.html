@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>market</title>
+	<link rel="stylesheet" type="text/css" href="css/market/main style.css">
+	<link rel="stylesheet" type="text/css" href="css/market/cards.css">
+	<link rel="stylesheet" type="text/css" href="css/market/message_popup_snackbar.css">
+</head>
+<body>
+
+<div id="header_menu">
+	<a href="index.html">
+		<button id="close_market"><< back to home</button>
+	</a>
+
+	<div>
+		<h1>cash: <span id="cash_number">1000</span></h1>
+	</div>
+
+	<div id="container_level">
+		<h1 id="LVL">LVL: <span id="level_number">1</span></h1>
+		<div class="container_progress">
+			<div class="progress_bar" id="level_progress_bar"></div>
+		</div>
+	</div>
+</div>
+
+<div id="market_container">
+	<div id="row_menu">
+		<button class="menu_btn" id="power_ups_menu">Power Ups</button>
+		<button class="menu_btn" id="cards_menu">Cards</button>
+		<button class="menu_btn" id="backgrounds_menu">Backgrounds</button>
+		<button class="menu_btn" id="my_bag_menu">my bag</button>
+	</div>
+
+	<div id="row_products">
+
+	</div>
+</div>
+
+<div id="snackbar_container">
+	<div id="snackbar" class="green_thing">Some text some message..</div>
+</div>
+<!-- theme changer -->
+<script src="JS/change_theme.js"></script>
+
+<script src="JS/market/market products.js"></script>
+<script src="JS/market/cards products.js"></script>
+<script src="JS/market/menu buttons market.js"></script>
+<script src="JS/load_local_storage.js"></script>
+<script src="JS/market/message_popup_snackbar.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+/*scroll bar width */
+::-webkit-scrollbar {
+  width: 9px;
+  scroll-behavior: smooth;
+}
+
+/*scroll bar Track */
+::-webkit-scrollbar-track {
+  background-color: grey;
+}
+
+/*scroll bar Handle */
+::-webkit-scrollbar-thumb {
+  background: #272222;
+  border-radius: 30px;
+  transition: .2s;
+}
+
+/*scroll bar Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black;
+  transition: .2s;
+}
+
+body{
+	padding: 0px;
+	margin: 0px;
+  background-color: #1760a7;
+}
+
+.divisors{
+  display: inline-block;
+  width: 100%;
+  font-size: 1.4em;
+  color: white;
+}
+
+li,ul{
+  all: unset;
+  display: block;
+  padding: 1%;
+  transition: .2s;
+}
+
+li:hover{
+  cursor: pointer;
+  color: #0cef0c;
+  transition: .2s;
+}
+
+h2,h3{
+  text-align: center;
+  color: #20e613;
+}
+
+#main{
+  margin-bottom: 10%;
+}
+
+.container_titles{
+  text-align: center;
+  color: white;
+  font-size: 1.2em;
+}
+
+.explanation{
+  text-align: justify;
+  font-size: 1.8em;
+  color: white;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+img{
+  margin: auto;
+  display: block;
+  margin-top: 1%;
+}

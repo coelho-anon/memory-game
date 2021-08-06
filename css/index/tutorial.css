@@ -1,0 +1,105 @@
+/*scroll bar width */
+::-webkit-scrollbar {
+  width: 9px;
+  scroll-behavior: smooth;
+}
+
+/*scroll bar Track */
+::-webkit-scrollbar-track {
+  background-color: grey;
+}
+
+/*scroll bar Handle */
+::-webkit-scrollbar-thumb {
+  background: #272222;
+  border-radius: 30px;
+  transition: .2s;
+}
+
+/*scroll bar Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black;
+  transition: .2s;
+}
+
+body{
+	padding: 0px;
+	margin: 0px;
+}
+
+#blur_bg_tutorial{
+	position: fixed;
+	overflow: auto;
+	z-index: 9999999999;
+	width: 100%;
+	height: 100%;
+	background-color: #000000ba;
+	top: 0px;
+	font-family: auto;
+}
+
+	#back_to_index{
+	    background-color: #1d56ad;
+	    border-radius: 0px 5px 5px 0px;
+	    color: white;
+	    border: none;
+	    font-size: 2.5em;
+	    transition: 0.2s;
+	    margin-top: 5%;
+	}
+
+	#back_to_index:hover {
+	    color: black;
+	    background-color: #2196f3;
+	    font-size: 2.8em;
+	    transition: .2s;
+	    cursor: pointer;
+	}
+
+
+
+	#tutorial_modal{
+		display: block;
+		margin: auto;
+		border-radius: 15px;
+		width: 70%;
+		height: auto;
+		padding-bottom: 10%;
+		background-color: #00bcd4;
+		margin-bottom: 10%;
+	}
+		
+		#close_tutorial_modal{
+			background-color: transparent;
+			border: none;
+			font-size: 3em;
+			font-weight: bolder;
+			float: right;
+			transition: .2s;
+		}
+
+		#close_tutorial_modal:hover{
+			cursor: pointer;
+			color: red;
+			transition: .2s;
+		}
+
+		#tutorial_informations{
+			text-align: center;
+			color: white;
+		}
+
+			.divisors_tutorial{
+				margin-top: 10%;
+			}
+
+			#tutorial_informations h1{
+				text-align: center;
+				padding: 0px;
+				margin: 0px;
+			}
+
+		.images_tutorial{
+			width: 100%;
+			height: 40%;
+		}

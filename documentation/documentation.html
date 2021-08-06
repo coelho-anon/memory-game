@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOCUMENTATION</title>
+	<link rel="stylesheet" type="text/css" href="documentation.css">
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+
+<div class="explanation">
+	<h2>MEMORY GAME DOCUMENTATION</h2>
+	<h3>coelhoanoncode@gmail.com</h3>
+</div>
+
+<div id="menu">
+	<div class="divisors">
+		<ul>
+			<li onclick="local_storage()">LOCAL STORAGE</li>
+			<li onclick="music()">MUSIC</li>
+			<li onclick="credits()">CREDITS</li>
+			<li onclick="options()">OPTIONS</li>
+			<li onclick="market_products()">MARKET PRODUCTS</li>
+			<li onclick="items()">CREATION OF ITEMS</li>
+			<li onclick="buy_tems()">BUY SYSTEM</li>
+			<li onclick="quantity_items()">QUANTY OF ITEMS</li>
+			<li onclick="tab_change()">TAB CHANGE</li>
+			<li onclick="my_bag()">MY BAG</li>
+			<li onclick="use_unequipe()">USE/UNEQUIPE</li>
+			<li onclick="game_logic()">GAME LOGIC</li>
+			<li onclick="game_audio()">IN-GAME AUDIO</li>
+			<li onclick="power_menu()">POWER UPS MENU</li>
+			<li onclick="power_ups_effect()">POWER UPS EFFECTS</li>
+			<li onclick="time_power_up()">TIME POWER UP</li>
+			<li onclick="gold_power_up()">GOLD POWER UP</li>
+			<li onclick="spin_power_up()">SPIN CARDS POWER UP</li>
+			<li onclick="xp_power_up()">XP POWER UP</li>
+			<li onclick="creating_cards()">CREATING THE CARDS</li>
+			<li onclick="card_bg_theme()">CARD THEME AND BACKGROUNDS</li>
+			<li onclick="match_cards()">MATCH OF CARDS</li>
+			<li onclick="earn_cash()">HOW YOU EARN CASH</li>
+			<li onclick="gain_level()">HOW YOU GAIN LEVEL</li>
+			<li onclick="pause_system()">GAME PAUSE SYSTEM</li>
+			<li onclick="end_game()">END OF THE GAME</li>
+			<li onclick="loser_screen()">LOSER SCREEN</li>
+			<li onclick="winner_screen()">WINNER SCREEN</li>
+		</ul>
+	</div>
+</div>
+
+
+
+<div id="main">
+<div class="container_titles">
+	<h1>DOCUMENTATION</h1>
+	<h2>DATA BASE</h2>
+	<h3>available in the archive "load_local_storage.js"</h3>
+</div>
+<hr>
+
+<div class="explanation" id="LOCAL_STORAGE">
+	<h4>
+		the center of the whole game is in the load_local_storage.js file, which is where
+		all data is saved ... progress, level, money, items ...
+	</h4>
+
+	<img src="screen1.png">
+
+
+	<h4>
+		when the game starts, it checks whether it is the first time the person
+		is playing or not, if so, it will add the initial settings.
+		The verification is done by doing a search for "Coelho_anon_arrepia" inside
+		from localStorage
+	</h4>
+
+	<img src="screen2.png">
+
+	<br>
+
+	<h4>
+		This function also checks which screen the user is on, because if it were the
+		home screen and there was no such check, the game would have a chain error, since
+		that as he has no menu items at the beginning, he would not be able to assign the proper ones
+		values, then a screen check was made to prevent these types of errors.
+	</h4>
+
+	<img src="screen1.1.png">
+
+</div>
+
+
+<div class="explanation" id="music">
+	<h2>Music / Audio</h2>
+	<h3>available in the archive "load_local_storage.js"</h3>
+	<hr>
+
+	<h4>
+		If the user is on the home screen and it is their first time in the game, the settings
+standard will be audio and music linked.
+	</h4>
+
+	<img src="screen2.2.png">
+
+	<h3>available in the archive "music_effects.js"</h3>
+
+	<h4>
+		in all parts of the game, the audio comes from just one file, which checks the current status of the
+audio and reproduce the songs in a simple way. All audio effects use a function
+almost identical, changing only which audio file will be played.
+	</h4>
+
+	<img src="audio1.png">
+	<img src="audio1.1.png">
+</div>
+
+
+<div class="explanation" id="credits">
+	<h2>Credits</h2>
+	<h3>available in the archive "credits.js"</h3>
+	<hr>
+
+	<h4>
+		A little bit of Jquery was used to make this kind of transition when it appears or disappears
+the modal on the screen.
+	</h4>
+
+	<img src="credits.png">
+	<img src="credits2.png">
+</div>
+
+
+<div class="explanation" id="options">
+	<h2>Options</h2>
+	<h3>available in the archive "welcome modal.js"</h3>
+	<hr>
+
+	<h4>
+		A little bit of Jquery was used to make this kind of transition when it appears or disappears
+the modal on the screen.
+	</h4>
+	<img src="welcome2.png">
+	<img src="welcome1.png">
+
+	<h4>
+		here a check is made if there is any audio configuration already defined by the user and so
+update the audio states and their respective images.
+	</h4>
+	<img src="welcome3.png">
+
+	<h4>
+		when the user clicks on any audio status icon, the game saves this configuration in place
+storage and changes the current images and states in the game.
+	</h4>
+	<img src="welcome4.png">
+	<img src="welcome5.png">
+</div>
+
+
+<div class="explanation" id="market_products">
+	<h2>market products</h2>
+	<h3>available in the archive "market products.js"</h3>
+	<hr>
+
+	<h4>
+		"market products.js" is as important as "load_local_storage.js" because it
+that's where all the products in the store are. I created an array of objects where
+each object represents a product in the store, so if you want to add
+a new item to the store, you just need to add a new object with the features
+and place the product image in its proper folder.
+	</h4>
+
+	<img src="screen3.png">
+
+	<h4>
+		these are the effects of power ups and follow the same logic as the store's products, but for
+create a new power up, you must make a new object and its effect in a new file.
+	</h4>
+
+	<img src="screen4.png">
+</div>
+
+<div class="explanation" id="items">
+	<h2>creation of items</h2>
+	<h3>available in the archive "cards products.js"</h3>
+	<hr>
+
+	<h4>
+		All items are created on the same screen, but if the item is not in the "power ups" category (because it is
+the first tab), it is hidden. It is in the file "cards products.js"
+	</h4>
+
+	<img src="screen9.png">
+</div>
+
+<div class="explanation" id="buy_tems">
+	<h2>buy system</h2>
+	<h3>available in the archive "cards products.js"</h3>
+	<hr>
+
+	<h4>
+		Two checks are made, if the user has enough money and if he already has an item
+in the bag. The second check is necessary because the local storage does not work very well
+with the ".push ()" method. This function is in the file "cards products.js" inside the folder
+market.
+	</h4>
+	<img src="screen5.png">
+</div>
+
+<div class="explanation" id="quantity_items">
+	<h2>quantity of items</h2>
+	<h3>available in the archive "cards products.js"</h3>
+	<hr>
+
+	<img src="screen8.png">
+
+	<h4>
+		The verification of how many items there is already done when creating the store cards. The algorithm
+checks if there is any item in the bag and if that item matches the product id to make
+the count of each item.
+	</h4>
+	<img src="screen6.png">
+
+	<br>
+
+	<h4>
+		Items are stored by an id, and how local storage turns everything inside it into
+string, it is necessary to use the ".split (", ")" method to be able to get each item separately
+comma, that is, this is a means of transforming the local storage string into an array.
+	</h4>
+
+	<img src="screen7.png">
+</div>
+
+<div class="explanation" id="tab_change">
+	<h2>tab change</h2>
+	<h3>available in the archive "menu buttons market.js"</h3>
+	<hr>
+
+	<h4>
+		Whenever the user clicks on a store menu tab (such as backgrounds, for example),
+items that do not match this category are hidden by using the code below.
+	</h4>
+
+	<img src="screen10.png">
+	<img src="screen11.png">
+</div>
+
+
+<div class="explanation" id="my_bag">
+	<h2>my bag</h2>
+	<h3>available in the archive "menu buttons market.js"</h3>
+	<hr>
+
+	<h4>
+		checks which products are greater than 0 (zero) and shows only them. The code is available
+in the "menu buttons market.js" file
+	</h4>
+
+	<img src="screen12.png">
+</div>
+
+
+<div class="explanation" id="use_unequipe">
+	<h2>use/unequipe</h2>
+	<h3>available in the archive "cards products.js"</h3>
+	<hr>
+
+	<h4>
+		It is only possible to equip two items, backgrounds and cards, so I made a code that only equips
+both, this means that it is not automatic if you want to add other types of equipable items
+other than cards or backgrounds. The code below checks whether the theme is equipped or not, making a
+search for local storage.
+	</h4>
+
+	<img src="screen13.png">
+	<img src="screen14.png">
+</div>
+
+
+<div class="explanation" id="game_logic">
+	<h2>Game logic</h2>
+	<h3>ignore if you know how a common memory game works</h3>
+	<h4>
+		the game itself works as follows ... the player enters the game and all cards are created
+face up, and after a while they turn around and the game begins, when the
+player clicks on a card it turns, after clicking on two cards the algorithm checks if they are the same,
+if so, they are turned over until the end of the game, otherwise, the two cards turn over again. If the player hits all the cards before time runs out, he wins, otherwise he loses.
+	</h4>
+</div>
+
+
+<div class="explanation" id="game_audio">
+	<h2>In-game audio</h2>
+	<h3>available in the archive "game_sound.js"</h3>
+	<hr>
+
+	<h4>
+		There is nothing new in the logic of audios in the actual game part, except the buttons that are
+clicked. The code checks the current state of the audio in the local storage and then passes it on to
+the game. When the player clicks on the audio icons, the states of the audios are saved in place
+storage and passes the new state to the game.
+	</h4>
+
+	<img src="screen15.png">
+	<img src="screen16.png">
+	<img src="screen17.png">
+</div>
+
+
+<div class="explanation" id="power_menu">
+	<h2>power ups menu</h2>
+	<h3>available in the archive "power ups.js"</h3>
+	<hr>
+
+	<h4>
+		the code below checks if there are items in the bag, if they are in the power ups category and how many of them
+are repeated, because in the storage location only the item id is registered, so if you have two
+units of the same item, the same number will be recorded twice. Repeating this count
+is registered to show to the user.
+	</h4>
+	<img src="screen18.png">
+	<img src="screen19.png">
+</div>
+
+
+<div class="explanation" id="power_ups_effect">
+	<h2>Power ups effects</h2>
+	<h3>available in the archive "power ups.js"</h3>
+	<hr>
+
+	<h4>
+		Each power up has a different effect, so each effect has been divided into functions in another file
+to simplify.
+	</h4>
+	<img src="screen20.png">
+</div>
+
+
+<div class="explanation" id="time_power_up">
+	<h2>Time power up</h2>
+	<h3>available in the archive "time_power_ups.js"</h3>
+	<hr>
+
+	<h4>
+		The html timer receives its own value (converted to a number) and the extra time
+of the power up time and finally the code updates the amount of power up in the storage location and in the
+html
+	</h4>
+	<img src="screen21.png">
+</div>
+
+
+<div class="explanation" id="gold_power_up">
+	<h2>Gold power up</h2>
+	<h3>available in the archives "match cards.js", "cash system.js" and "gold_power_up.js"</h3>
+	<hr>
+
+	<h4>
+		The player always receives some amount of gold when he hits a pair of cards. The value
+of the gain is random between 1 and 10, and this value is passed to the cash system.js file
+	</h4>
+	<img src="screen23.png">
+
+	<br>
+
+	<h4>
+		In the cash system.js file it will receive the cash value and update it in the local storage and html, but,
+if the gold power up is activated it will multiply by 2 before doing the same process.
+	</h4>
+	<img src="screen24.png">
+
+	<br>
+
+	<h4>
+		The gold_power_up.js file basically does two things, activates the double gold effect
+and updates the amount of this power up in the local storage and html. SetInterval () was used
+to count the time when the power up is activated, and this is what updates the state of true or false
+of the power up.
+	</h4>
+
+	<img src="screen22.png">
+</div>
+
+
+<div class="explanation" id="spin_power_up">
+	<h2>Spin cards power up</h2>
+	<h3>available in the archive "spin_power_ups.js"</h3>
+	<hr>
+	<h4>
+		It saves which cards have not yet been tapped and then shows them for time
+the power up lasts, and it is important that all cards lose the click event to
+that there is no bug. When the power up time ends, the click event returns and the
+cards are turned over to the initial state.
+	</h4>
+	<img src="screen25.png">
+</div>
+
+
+<div class="explanation" id="xp_power_up">
+	<h2>XP power up</h2>
+	<h3>available in the archive "xp_power_ups.js" and "level system.js"</h3>
+	<hr>
+	<h4>
+		When activated, it triggers a function that starts a timer by setInterval (), and
+as long as the power up time lasts, the effect will be true, which in the level system.js file
+uses to multiply the xp's progress by the power up, and when the power up ends it turns false and
+everything goes back to normal.
+	</h4>
+	<img src="screen27.png">
+	<img src="screen26.png">
+</div>
+
+
+<div class="explanation" id="creating_cards">
+	<h2>Creating the cards</h2>
+	<h3>available in the archive "cards creator.js"</h3>
+	<hr>
+	<h4>
+		There are only two paths in creating the cards, creating them with the standard images or with
+market. The code checks in the storage location if there is a market deck being used or not,
+to define whether the cards will be standard or not.
+	</h4>
+	<img src="screen28.png">
+	<br>
+
+	<h4>
+		Before letters were actually created in html, the array that is used to store the letters is
+drawn, making the cards now all shuffled every time
+html elements (letters) are created.
+	</h4>
+	<img src="screen29.png">
+	<br>
+
+	<h4>
+		Right after the cards are shuffled and created, they are given an id in the value attribute of the cards to identify the pairs of cards. It works like this ... two FOR loops are made
+to compare the image of each card, and if the card images are the same, they are given an id.
+	</h4>
+	<img src="screen30.png">
+	<br>
+
+	<h4>
+		The cards are created with the face open, so that the player can memorize the cards before starting to play (that's why it's called the memory game, not the guessing game), when all the cards have already been created,
+they are turned over for a certain time (2200) and only then do they turn around.
+	</h4>
+	<img src="screen31.png">
+</div>
+
+<div class="explanation" id="card_bg_theme">
+	<h2>Card theme and backgrounds</h2>
+	<h3>available in the archive "change_theme.js"</h3>
+	<hr>
+	<h4>
+		In the market products.js file, the decks and backgrounds already have an array with the theme of the cards and backgrounds, so when the user selects / equips an equipable item, it is saved in the local storage
+the id of that item is checked for any item / id within the theme of backgrounds and letters.
+	</h4>
+	<img src="screen34.png">
+	<img src="screen33.png">
+	<img src="screen32.png">
+	<img src="screen35.png">
+</div>
+
+
+<div class="explanation" id="match_cards">
+	<h2>Match of cards</h2>
+	<h3>available in the archive "match cards.js"</h3>
+	<hr>
+	<h4>
+		First, the number of cards turned is checked, so that it is not possible for the user
+turn more than two cards at a time. When there are no cards dealt, the spin function is activated, and when
+there is already a card turned over, verification is made that they are the same. If there is a match between the cards the player wins gold and XP.
+	</h4>
+	<img src="screen36.png">
+	<img src="screen37.png">
+	<img src="screen38.png">
+</div>
+
+
+<div class="explanation" id="earn_cash">
+	<h2>How you earn cash</h2>
+	<h3>available in the archive "cash system.js"</h3>
+	<hr>
+	<h4>
+		The game money is won every time the user hits a pair of cards, winning between 1 and 10.
+The function of when a match happens calls the function responsible for showing and saving money in the local storage and in the html.
+	</h4>
+	<img src="screen39.png">
+	<img src="screen40.png">
+</div>
+
+
+<div class="explanation" id="gain_level">
+	<h2>How you gain level</h2>
+	<h3>available in the archive "level system.js"</h3>
+	<hr>
+	<h4>
+		In the image below, this code will only be executed when the user gains enough XP to
+pass the level.
+	</h4>
+	<img src="screen41.png">
+	<br>
+
+	<h4>
+		Na imagem abaixo esse código será executado apenas quando o usuário ganhar XP mas não for o 
+		suficiente para passar de level.
+	</h4>
+	<img src="screen42.png">
+</div>
+
+
+<div class="explanation" id="pause_system">
+	<h2>Game pause system</h2>
+	<h3>available in the archive "timer.js"</h3>
+	<hr>
+	<h4>
+		A setInterval () was used that will be executed until the end of the game. The "pause_play" variable
+is responsible for controlling the game clock; whenever it has the value "PLAY"
+the counter will be reduced until it reaches zero.
+	</h4>
+	<img src="screen43.png">
+	<img src="screen44.png">
+</div>
+
+
+<div class="explanation" id="end_game">
+	<h2>End of the game</h2>
+	<h3>available in the archive "end memory game.js"</h3>
+	<hr>
+	<h4>
+		The game ends only on two occasions, when time runs out or when the user hits all pairs of cards, and when that happens, the click event is removed from the cards, preventing the player from continuing to play and a screen with the result of the game (loser or winner).
+	</h4>
+	<img src="screen45.png">
+</div>
+
+
+<div class="explanation" id="loser_screen">
+	<h2>Loser screen</h2>
+	<h3>available in the archive "end memory game.js"</h3>
+	<hr>
+	<h4>
+		The loser screen is displayed only when playing time ends before the player hits all
+the pairs of cards.
+	</h4>
+	<img src="lose.png">
+	<img src="screen46.png">
+	<img src="screen47.png">
+</div>
+
+
+<div class="explanation" id="winner_screen">
+	<h2>Winner screen</h2>
+	<h3>available in the archive "end memory game.js"</h3>
+	<hr>
+	<h4>
+		The winner screen is shown only when the player hits all pairs of cards before
+the game time ends. Every time a pair of cards is hit, the clear_game () function is called
+to verify that the number of cards matched corresponds to the total number of cards, and if true,
+the end-of-game code for the winner is activated.
+	</h4>
+	<img src="win.png">
+	<img src="screen48.png">
+	<img src="screen49.png">
+</div>
+
+</div>
+
+
+<script src="documentation.js"></script>
+
+</body>
+</html>

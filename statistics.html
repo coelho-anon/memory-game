@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>statistics</title>
+
+
+	<link rel="stylesheet" type="text/css" href="css/statistics/statistics.css">
+</head>
+<body>
+
+<div id="blur_container">
+	<button id="close_end_game">&times;</button>
+</div>
+
+<div>
+	<div id="statistics_container">
+		<div class="row_container">
+			<div class="card_container" id="hit_points_container">
+				<div class="head_card"></div>
+				<div class="body_card">Hit Tax</div>
+				<hr>
+				<div class="footer_card">80</div>
+			</div>
+
+			<div class="card_container" id="error_points_container">
+				<div class="head_card"></div>
+				<div class="body_card">Hit Tax</div>
+				<hr>
+				<div class="footer_card">80</div>
+			</div>
+		</div>
+
+		<div class="row_container">
+			<div class="card_container" id="speed_points_container">
+				<div class="head_card"></div>
+				<div class="body_card">Hit Speed</div>
+				<hr>
+				<div class="footer_card">80</div>
+			</div>
+
+			<div class="card_container" id="speed_points_container">
+				<div class="head_card"></div>
+				<div class="body_card">Error Speed</div>
+				<hr>
+				<div class="footer_card">80</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="gains_container">
+		<div id="win_message"><h1>YOU WIN</h1></div>
+		<div id="row_end_game_gains">
+			<img src="gold.png" id="gold_icon">
+			<img src="xp.png" id="xp_icon">
+			<div id="gold_gains">100</div>
+			<div id="xp_gains">100</div>
+		</div>
+		<div id="row_play_again">
+			<div>
+				<button id="play_again">again</button>
+			</div>
+			<div>
+				<button id="next_chapter">shop</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="JS/statistics/statistics.js"></script>
+</body>
+</html>

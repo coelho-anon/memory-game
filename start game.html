@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>memory game</title>
+
+</head>
+	<script src="JS/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/cards.css">
+	<link rel="stylesheet" type="text/css" href="css/menu.css">
+	<link rel="stylesheet" type="text/css" href="css/power ups.css">
+	<link rel="stylesheet" type="text/css" href="css/result_modal.css">
+	<link rel="stylesheet" type="text/css" href="css/market/message_popup_snackbar.css">
+	<link rel="stylesheet" type="text/css" href="css/credits.css">
+
+	<script src="JS/message_poup.js"></script>
+<body>
+
+<div id="mynav">
+  <button id="fechar-nav">&times;</button>
+  <a href="index.html" class="link_btn">
+  	<button class="btn-nav">Home</button>
+  </a>
+
+  <a href="market.html" class="link_btn">
+  	<button class="btn-nav">Market</button>
+  </a>
+
+  	<button class="btn-nav" id="credits">Credits</button>
+
+  <hr>
+
+  <div id="music_sound_container">
+	<div id="music_icon"></div>
+	<div id="sound_icon"></div>
+  </div>
+
+  <hr>
+
+  <div class="row_power_up">
+
+  </div>
+</div>
+
+
+
+<div id="cards_container">
+
+	<div id="main">
+
+	  	<button id="abrir-nav">&#9776; abrir</button>
+
+		<div>
+			<h1>cash: <span id="cash_number">1000</span></h1>
+		</div>
+
+		<div id="container_level">
+			<h1 id="LVL">LVL: <span id="level_number">1</span></h1>
+			<div class="container_progress">
+				<div class="progress_bar" id="level_progress_bar"></div>
+			</div>
+		</div>
+
+		<div id="time_countainer">
+			<h1><button id="pause_play_btn">PAUSE</button>: <span id="time_number">30</span></h1>
+		</div>
+
+	</div>
+
+</div>
+
+<div id="result_modal">
+	<div id="content_result">
+
+		<button id="close_result_modal">&times;</button>
+		<div id="align_modal_btn_end">
+			<div id="actions_result_modal">
+				<button id="play_again_modal">Play Again</button>
+				<a href="market.html">
+					<button id="go_market_modal">Go To Market</button>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="blur_bg_credits">
+	<div id="credits_modal">
+		<button id="close_credits_modal">&times;</button>
+		<div id="container_credits_title">
+			<h1>Contact me for updates or works</h1>
+			<h2>thiago_silva_independent@gmail.com</h2>
+		</div>
+
+		<div id="message_credits">
+			I'm a idependent developer and i did the game completly alone, i will be so much
+			happy if you contact me for more works or licences, this suport me for continue the journey. THANKS SO MUCH for buy this work, i can do more simple games for browser exclusive for you, so, contact me.
+		</div>
+	</div>
+</div>
+
+
+<div id="snackbar_container">
+	<div id="snackbar" class="green_thing">Some text some message..</div>
+</div>
+
+<!-- sound effects -->
+<script src="JS/music_effects.js"></script>
+<script src="JS/game_sound.js"></script>
+
+<script src="JS/market/market products.js"></script>
+<script src="JS/timer.js"></script>
+<script src="JS/jquery.min.js"></script>
+<script src="JS/open close menu.js"></script>
+<script src="JS/cards creator.js"></script>
+<script src="JS/match cards.js"></script>
+<script src="JS/level system.js"></script>
+<script src="JS/end memory game.js"></script>
+<script src="JS/cash system.js"></script>
+<script src="JS/statistics.js"></script>
+<script src="JS/load_local_storage.js"></script>
+<script src="JS/power ups.js"></script>
+
+<!-- power ups effect -->
+<script src="JS/time_power_up.js"></script>
+<script src="JS/gold_power_up.js"></script>
+<script src="JS/spin_power_up.js"></script>
+<script src="JS/xp_power_up.js"></script>
+
+<!-- theme changer -->
+<script src="JS/change_theme.js"></script>
+
+<!-- result modal -->
+<script src="JS/result_modal.js"></script>
+<script src="JS/credits.js"></script>
+</body>
+</html>
