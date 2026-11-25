@@ -54,7 +54,7 @@
 		}
 
 			#welcome_message{
-				font-family: "Kristen ITC";
+				font-family: "Trebuchet MS", Arial, sans-serif;
 				font-size: 8em;
 				color: orange;
     			text-shadow: 0 0 8px black;
@@ -67,7 +67,6 @@
 			}
 
 				#music_icon{
-					/*background-image: url('D:/COLABORATION WORKS/memory game/images/audioOn.png');*/
 					background-size: cover;
 					background-position: center;
 					background-repeat: no-repeat;
@@ -78,7 +77,6 @@
 				}
 
 				#sound_icon{
-					/*background-image: url('D:/COLABORATION WORKS/memory game/images/musicOn.png');*/
 					background-size: cover;
 					background-position: center;
 					background-repeat: no-repeat;
@@ -208,3 +206,13 @@
 		.flip_box_back {
 		  transform: rotateY(180deg);
 		}
+
+/* Audio controls use real assets assigned by JS; keep them visible on every browser. */
+#music_icon, #sound_icon {
+  display: block !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  min-width: 100px;
+  min-height: 100px;
+}

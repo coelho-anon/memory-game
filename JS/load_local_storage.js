@@ -2,7 +2,7 @@
 var bag = [];
 
 window.addEventListener("load", function (argument) {
-	document.querySelector("html").style.fontFamily = 'Kristen ITC';
+	document.querySelector("html").style.fontFamily = 'Trebuchet MS, Arial, sans-serif';
 	if (document.getElementById("cash_number") != null) {
 		
 		var gold = document.getElementById("cash_number");
@@ -16,7 +16,7 @@ window.addEventListener("load", function (argument) {
 			// create space for future itens on bag
 			localStorage.setItem("bag",bag)
 			// add gold
-			localStorage.setItem("memory_game_gold", 9000)
+			localStorage.setItem("memory_game_gold", 100)
 
 			// add level
 			localStorage.setItem("memory_game_level_number", 1)
@@ -33,6 +33,11 @@ window.addEventListener("load", function (argument) {
 		}
 		// not a beginner
 		else {
+
+			// Migrate the old default balance (9000) to the new economy.
+			if (localStorage.getItem("memory_game_gold") === "9000") {
+				localStorage.setItem("memory_game_gold", 100);
+			}
 
 			// update gold
 			gold.innerHTML = localStorage.getItem("memory_game_gold")

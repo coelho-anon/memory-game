@@ -1,59 +1,39 @@
-function spin_power_up (argument) {
-	// power up of spin.
-	if (argument.toElement.value == "spin") {
-		for (i in power_up_effects) {
-			if (power_up_effects[i].type == "spin") {
+function spin_power_up (event) {
+    var button = event.currentTarget;
+    if (!button || button.value !== "spin") return;
 
-				
-				let effect_duration = power_up_effects[i].duration;
-				let cards_covered = [];
-				let spin_timer_count = setInterval(function(){
+    for (var i = 0; i < power_up_effects.length; i++) {
+        if (power_up_effects[i].type === "spin") {
+            var effect_duration = power_up_effects[i].duration;
+            var cards_covered = [];
 
-					effect_duration -= 1;
+            var spin_timer_count = setInterval(function () {
+                effect_duration -= 1;
 
-					for (j in cards_array) {
-						if (cards_array[j].style.transform == "rotateY(0deg)") {
+                for (var j = 0; j < cards_array.length; j++) {
+                    var card = cards_array[j];
+                    if (card && getYRotation(card) === 0 && cards_covered.indexOf(card) === -1) {
+                        cards_covered.push(card);
+                        card.removeEventListener("click", match_cards);
+                        card.style.transform = "rotateY(180deg)";
+                        card.style.transition = ".2s";
+                        card.style.perspective = "2000px";
+                    }
+                }
 
-							cards_covered.push(cards_array[j]);
+                if (effect_duration <= 0 || end_game_completly === true) {
+                    clearInterval(spin_timer_count);
+                    for (var k = 0; k < cards_covered.length; k++) {
+                        cards_covered[k].style.transform = "rotateY(0deg)";
+                        cards_covered[k].style.transition = ".2s";
+                        cards_covered[k].style.perspective = "2000px";
+                        cards_covered[k].addEventListener("click", match_cards);
+                    }
+                }
+            }, 1000);
 
-							cards_array[j].removeEventListener("click", match_cards);
-
-							cards_array[j].style.transform = "rotateY(180deg)";
-							cards_array[j].style.transition = ".2s";
-							cards_array[j].style.perspective = "2000px";
-						}
-					}
-
-					if (effect_duration <= 0) {
-						clearInterval(spin_timer_count);
-						for (j in cards_covered) {
-
-							cards_covered[j].style.transform = "rotateY(0deg)";
-							cards_covered[j].style.transition = ".2s";
-							cards_covered[j].style.perspective = "2000px";
-
-							cards_covered[j].addEventListener("click", match_cards);
-						}
-					}
-
-				}, 1000);
-
-				// update the local storage removing one power up
-				let update_bag = localStorage.getItem("bag").split(",")
-				update_bag.splice(update_bag.indexOf(argument.toElement.title,0), 1);
-				localStorage.setItem("bag", update_bag)
-
-				// remove the power up from html
-				if (parseInt(argument.toElement.innerHTML) == 1) {
-					argument.toElement.style.display = 'none';
-				}
-				// update how much power up of "spin" player got
-				else {
-					argument.toElement.innerHTML = parseInt(argument.toElement.innerHTML) - 1;
-				}
-				
-			}
-		}
-	}
+            consume_power_up(button);
+            return;
+        }
+    }
 }
-

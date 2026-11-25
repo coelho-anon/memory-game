@@ -1,45 +1,26 @@
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
-/* IMPORTANT: if you put the name only "gold_power_up" this will
-	result in a fail of cash system, because existe a var named "gold_power_up"
-	look at cash system.js for understand*/
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
-function gold_power_up_effect (argument) {
+function gold_power_up_effect (event) {
+    var button = event.currentTarget;
+    if (!button || button.value !== "gold") return;
 
-	if (argument.toElement.value == "gold") {
-		for (i in power_up_effects) {
-			if (power_up_effects[i].type == "gold") {
+    for (var i = 0; i < power_up_effects.length; i++) {
+        if (power_up_effects[i].type === "gold") {
+            var start_count_time = parseInt(time.innerHTML, 10);
+            var duration = power_up_effects[i].duration;
+            var multiple = power_up_effects[i].multiple;
 
-				// let atual_gold = parseInt(cash.innerHTML);
-				let start_count_time = parseInt(time.innerHTML);
+            gold_power_up = true;
+            gold_power_up_multiple = multiple;
 
-				let timer_aux = setInterval(function(){
+            var timer_aux = setInterval(function () {
+                if (start_count_time - parseInt(time.innerHTML, 10) >= duration || end_game_completly === true) {
+                    gold_power_up = false;
+                    gold_power_up_multiple = 0;
+                    clearInterval(timer_aux);
+                }
+            }, 1000);
 
-					gold_power_up = true;
-					gold_power_up_multiple = power_up_effects[i].multiple;
-
-					if (start_count_time - parseInt(time.innerHTML) == power_up_effects[i].duration) {
-						gold_power_up = false;
-						gold_power_up_multiple = 0;
-						clearInterval(timer_aux);
-					}
-				}, 1000);
-
-				// update the local storage removing one power up
-				let update_bag = localStorage.getItem("bag").split(",")
-				update_bag.splice(update_bag.indexOf(argument.toElement.title,0), 1);
-				localStorage.setItem("bag", update_bag)
-
-				// remove the power up from html
-				if (parseInt(argument.toElement.innerHTML) == 1) {
-					argument.toElement.style.display = 'none';
-				}
-				// update how much power up of "gold" player got
-				else {
-					argument.toElement.innerHTML = parseInt(argument.toElement.innerHTML) - 1;
-				}
-			}
-		}
-	}
+            consume_power_up(button);
+            return;
+        }
+    }
 }

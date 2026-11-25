@@ -1,0 +1,136 @@
+/* Memory Game visual theme — safe web fonts and cohesive palette */
+:root {
+  --mg-navy: #10233f;
+  --mg-blue: #1f6feb;
+  --mg-cyan: #38bdf8;
+  --mg-gold: #f2c14e;
+  --mg-bg: #0b1424;
+  --mg-surface: #162b49;
+  --mg-text: #f5f7fa;
+  --mg-muted: #b9c7d9;
+  --mg-shadow: rgba(0, 0, 0, 0.35);
+}
+
+html, body, button, input, select, textarea {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+body {
+  color: var(--mg-text);
+}
+
+button {
+  font-family: inherit;
+}
+
+#main, #header_menu {
+  background: var(--mg-navy) !important;
+  color: var(--mg-text);
+  box-shadow: 0 6px 12px var(--mg-shadow) !important;
+}
+
+.inicial_btn {
+  background: linear-gradient(135deg, var(--mg-blue), var(--mg-cyan)) !important;
+  color: #fff !important;
+  box-shadow: 0 6px 12px var(--mg-shadow) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+}
+
+.inicial_btn:hover {
+  background: linear-gradient(135deg, #1557b0, #0891b2) !important;
+  box-shadow: 0 8px 18px rgba(56,189,248,.28) !important;
+}
+
+#inner_welcome_container, #credits_modal {
+  background: linear-gradient(145deg, var(--mg-navy), var(--mg-surface)) !important;
+  color: var(--mg-text);
+}
+
+#welcome_message {
+  font-family: "Trebuchet MS", Arial, sans-serif !important;
+  color: var(--mg-gold) !important;
+}
+
+#ok_tbn {
+  background: var(--mg-gold) !important;
+  color: #10233f !important;
+}
+
+#ok_tbn:hover {
+  background: #ffd86b !important;
+}
+
+#main .progress_bar, .progress_bar {
+  background: var(--mg-gold) !important;
+}
+
+.menu_btn, #close_market {
+  background: var(--mg-blue) !important;
+}
+
+.menu_btn:hover, #close_market:hover {
+  background: var(--mg-cyan) !important;
+}
+
+.cards:hover {
+  box-shadow: 0 0 10px 5px rgba(56,189,248,.65) !important;
+}
+
+.cards_body {
+  background: var(--mg-surface) !important;
+  color: var(--mg-text);
+}
+
+.buy_btn, .use_item, #play_again_modal, #go_market_modal {
+  background: var(--mg-blue) !important;
+}
+
+.buy_btn:hover, .use_item:hover, #play_again_modal:hover, #go_market_modal:hover {
+  background: var(--mg-cyan) !important;
+  color: #10233f !important;
+}
+
+#actions_result_modal {
+  background: var(--mg-navy) !important;
+}
+
+.btn-nav {
+  color: var(--mg-text) !important;
+}
+
+.btn-nav:hover, #abrir-nav:hover {
+  color: var(--mg-cyan) !important;
+}
+
+#snackbar {
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .inicial_btn { font-size: 2em !important; }
+  #welcome_message { font-size: 4em !important; }
+  .container_progress { width: 180px !important; }
+  .cards { width: 140px !important; height: 180px !important; }
+}
+
+
+/* Consistent typography and palette across legacy screens/components */
+html, body, button, input, select, textarea, .cards, .cards_body, .description_product, .title_product {
+  font-family: "Trebuchet MS", Arial, sans-serif !important;
+}
+body, .cards_body, .cards_footer, .description_product, .title_product, .btn-nav, #LVL, #time_countainer, #container_credits_title h1, #message_credits {
+  color: var(--mg-text) !important;
+}
+#container_credits_title h2, #message_credits, #welcome_message {
+  color: var(--mg-gold) !important;
+  text-shadow: none !important;
+}
+#credits_modal {
+  background: linear-gradient(145deg, var(--mg-navy), var(--mg-surface)) !important;
+}
+#close_credits_modal { color: var(--mg-muted) !important; }
+#close_credits_modal:hover { color: #f87171 !important; }
+.power_up_icon { color: var(--mg-gold) !important; text-shadow: 1px 1px 2px rgba(0,0,0,.8); }
+#main, #mynav, .btn-nav, #music_sound_container, .container_progress, #pause_play_btn {
+  border-color: rgba(255,255,255,.12) !important;
+}

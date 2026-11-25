@@ -22,36 +22,39 @@ audioState();
 //card sound effect
 function soundEffectCard(){
     audioState();
-    if(musicOn == true){
+    if(soundOn == true){
         var sound = document.createElement("audio");
         var source = document.createElement("source");
         source.setAttribute("src","Music/paperShifting.mp3");
         source.setAttribute("type","audio/mpeg");
         sound.appendChild(source);
-        sound.play();
+        sound.volume = 0.22;
+        sound.play().catch(function () {});
     }
 }
 //sound effect when winning
 function soundEffectWin(){
     audioState();
-    if(musicOn == true){
+    if(soundOn == true){
         var sound = document.createElement("audio");
         var source = document.createElement("source");
         source.setAttribute("src","Music/Win.mp3");
         source.setAttribute("type","audio/mpeg");
         sound.appendChild(source);
-        sound.play();
+        sound.volume = 0.22;
+        sound.play().catch(function () {});
     }
 }
 //sound effect on losing
 function soundEffectLose(){
     audioState();
-    if(musicOn == true){
+    if(soundOn == true){
         var sound = document.createElement("audio");
         var source = document.createElement("source");
         source.setAttribute("src","Music/Lose.mp3");
         source.setAttribute("type","audio/mpeg");
         sound.appendChild(source);
-        sound.play();
+        sound.volume = 0.22;
+        sound.play().catch(function () {});
     }
 }

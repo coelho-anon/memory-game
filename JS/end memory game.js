@@ -29,7 +29,7 @@ function defeated_game (argument) {
 		document.getElementsByClassName("cards")[i].removeEventListener("click", match_cards);
 	}
 
-	document.getElementById("content_result").style.backgroundImage = "url('images/lose.png')";
+	document.getElementById("content_result").style.backgroundImage = "url('images/lose.PNG')";
 	$("#result_modal").fadeIn(1000);
 
 	end_game_completly = true;

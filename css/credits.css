@@ -16,7 +16,7 @@
 	border-radius: 15px;
 	width: 70%;
 	height: 60%;
-	background-color: #00bcd4;
+	background: linear-gradient(145deg, #10233f, #162b49);
 	z-index: 9999;
 }
 
@@ -31,7 +31,7 @@
 
 	#close_credits_modal:hover{
 		cursor: pointer;
-		color: red;
+		color: #f87171;
 		transition: .2s;
 	}
 
@@ -45,14 +45,14 @@
 	}
 
 	#container_credits_title  h2{
-		text-shadow: 1px 2px 0px #ffffff;
+		text-shadow: none;
 	}
 
 	#message_credits{
 		width: 80%;
 		margin: auto;
 		margin-top: 5%;
-		font-size: 1.7em;
-		text-shadow: 1px 2px 0px #ffffff;
+		font-size: 1.35em;
+		text-shadow: none;
 		text-align: justify;
 	}

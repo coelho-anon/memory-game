@@ -86,3 +86,25 @@ function effect_power_up (argument) {
 		message_popUp_snackbar("you can't use your power ups after game end")
 	}
 }
+function consume_power_up (button) {
+    if (!button) return;
+
+    var itemId = String(button.title);
+    var bag = (localStorage.getItem("bag") || "").split(",").filter(function (item) {
+        return item !== "";
+    });
+    var index = bag.indexOf(itemId);
+
+    if (index !== -1) {
+        bag.splice(index, 1);
+        localStorage.setItem("bag", bag.join(","));
+    }
+
+    var quantity = parseInt(button.textContent, 10) || 0;
+    if (quantity <= 1) {
+        button.textContent = "0";
+        button.style.display = "none";
+    } else {
+        button.textContent = String(quantity - 1);
+    }
+}

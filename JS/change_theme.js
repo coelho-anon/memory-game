@@ -1,9 +1,9 @@
 function change_theme (argument) {
 	var use_item_list = document.getElementsByClassName("use_item");
 
-	if (products_obj[argument.toElement.value].category == "backgrounds"){
+	if (products_obj[argument.currentTarget.value].category == "backgrounds"){
 		// equip item
-		if (argument.toElement.innerHTML == "use") {
+		if (argument.currentTarget.innerHTML == "use") {
 
 			for (i in use_item_list) {
 				for (j in products_obj) {
@@ -15,22 +15,22 @@ function change_theme (argument) {
 			}
 
 			localStorage.setItem("memory_game_background_theme", 
-				argument.toElement.parentNode.parentNode.title)
-			argument.toElement.innerHTML = "unequipe";
+				argument.currentTarget.parentNode.parentNode.title)
+			argument.currentTarget.innerHTML = "unequipe";
 
 			message_popUp_snackbar("background equiped")
 		}
 		// unequip item
 		else {
 			localStorage.setItem("memory_game_background_theme", null)
-			argument.toElement.innerHTML = "use";
+			argument.currentTarget.innerHTML = "use";
 
 			message_popUp_snackbar("background removed")
 		}
 	}
 
-	if (products_obj[argument.toElement.value].category == "cards"){
-		if (argument.toElement.innerHTML == "use") {
+	if (products_obj[argument.currentTarget.value].category == "cards"){
+		if (argument.currentTarget.innerHTML == "use") {
 
 			for (i in document.getElementsByClassName("use_item")) {
 				for (j in products_obj) {
@@ -43,15 +43,15 @@ function change_theme (argument) {
 
 			// recebe o id dele no array "products_obj"
 			localStorage.setItem("memory_game_cards_theme", 
-				argument.toElement.parentNode.parentNode.title)
-			argument.toElement.innerHTML = "unequipe";
+				argument.currentTarget.parentNode.parentNode.title)
+			argument.currentTarget.innerHTML = "unequipe";
 
 			message_popUp_snackbar("card equiped")
 
 		}
 		else {
 			localStorage.setItem("memory_game_cards_theme", null)
-			argument.toElement.innerHTML = "use";
+			argument.currentTarget.innerHTML = "use";
 			
 			message_popUp_snackbar("card removed")
 		}

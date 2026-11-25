@@ -1,205 +1,109 @@
-
 var total_flipped = 0;
 var flipped_cards = [];
-var count_flipped = 0
-
+var count_flipped = 0;
 
 create_cards();
 sort_cards();
 
-
-function click_cards_listener (argument) {
-	for (var i = 0; i < document.getElementsByClassName("cards").length; i++) {
-		document.getElementsByClassName("cards")[i].addEventListener("click", match_cards)
+function click_cards_listener () {
+	var cards = document.getElementsByClassName("cards");
+	for (var i = 0; i < cards.length; i++) {
+		cards[i].addEventListener("click", match_cards);
 	}
 }
-click_cards_listener()
+click_cards_listener();
 
+function match_cards (event) {
+	// Use standard DOM APIs. event.toElement is non-standard and can be
+	// undefined outside some Chromium environments.
+	var card = event.currentTarget;
 
-function match_cards (argument) {
-	if (argument.toElement.className == "front_card" && count_flipped < 2) {			
-		if (argument.toElement.parentNode.parentNode.style.transform == "rotateY(0deg)") {
+	if (!card || count_flipped >= 2) return;
 
-			rotate_card(argument.toElement.parentNode.parentNode)
-		}
+	// Ignore clicks on a card that is already face-up.
+	var transform = window.getComputedStyle(card).transform;
+	var isFaceDown = transform === "none" || transform === "matrix(1, 0, 0, 1, 0, 0)";
 
-		if (count_flipped >= 2) {
+	// The game starts with the cards face-down (rotateY(180deg)).
+	// After the initial reveal, the face-down state is rotateY(0deg).
+	// Handle both computed-matrix forms robustly.
+	var rotation = getYRotation(card);
+	if (rotation !== 0) return;
 
-			setTimeout(function(){
+	rotate_card(card);
 
-				count_flipped = 0
+	if (count_flipped >= 2) {
+		setTimeout(function () {
+			count_flipped = 0;
 
-				if (flipped_cards[0].value == flipped_cards[1].value) {
+			if (flipped_cards.length >= 2 && flipped_cards[0].value == flipped_cards[1].value) {
+				hide_cards_effect();
+			} else {
+				rotate_start_position();
+			}
+		}, 400);
+	}
+}
 
-					hide_cards_effect()
-				}
+function getYRotation (element) {
+	var transform = window.getComputedStyle(element).transform;
 
-				else{
-					rotate_start_position()
-				}
+	if (!transform || transform === "none") return 0;
 
-
-			}, 400);
-		}
+	var values = transform.match(/^matrix3d\((.+)\)$/);
+	if (values) {
+		var m = values[1].split(',').map(Number);
+		return Math.round(Math.atan2(m[2], m[0]) * 180 / Math.PI);
 	}
 
-	if (argument.toElement.className == "back_card" && count_flipped < 2) {
-
-		if (argument.toElement.parentNode.parentNode.style.transform != "rotateY(180deg)") {
-			
-			rotate_card(argument.toElement.parentNode.parentNode)
-		}
-
-
-		if (count_flipped >= 2) {
-
-			setTimeout(function(){
-
-				count_flipped = 0
-
-				if (flipped_cards[0].value == flipped_cards[1].value) {
-					
-					hide_cards_effect()
-				}
-
-				else{
-					rotate_start_position()
-				}
-
-			}, 400);
-		}
+	values = transform.match(/^matrix\((.+)\)$/);
+	if (values) {
+		var m2 = values[1].split(',').map(Number);
+		return Math.round(Math.atan2(-m2[1], m2[0]) * 180 / Math.PI);
 	}
 
-	if (argument.toElement.className == "two_faces_cards" && count_flipped < 2) {
+	return 0;
+}
 
-		if (argument.toElement.parentNode.style.transform == "rotateY(0deg)") {
-
-			rotate_card(argument.toElement.parentNode)
-		}
-
-		if (count_flipped >= 2) {
-
-			setTimeout(function(){
-
-				count_flipped = 0
-
-				if (flipped_cards[0].value == flipped_cards[1].value) {
-					
-					hide_cards_effect()
-				}
-
-				else{
-					rotate_start_position()
-				}
-
-			}, 400);
-		}
-	}
-
-	if (argument.toElement.className == "cards" && count_flipped < 2) {
-		
-		if (argument.toElement.style.transform == "rotateY(0deg)") {
-
-			rotate_card(argument.toElement)
-		}
-
-		if (count_flipped >= 2) {
-
-			setTimeout(function(){
-
-				count_flipped = 0
-
-				if (flipped_cards[0].value == flipped_cards[1].value) {
-
-					hide_cards_effect()
-				}
-
-				else{
-
-					rotate_start_position()
-				}
-
-			}, 400);
-		}
-
-	}
-
-	if (argument.toElement.nodeName == "H1" && count_flipped < 2) {
-		if (argument.toElement.parentNode.parentNode.parentNode.style.transform == "rotateY(0deg)") {
-
-			rotate_card(argument.toElement.parentNode.parentNode.parentNode)
-		}
-
-		if (count_flipped >= 2) {
-
-			setTimeout(function(){
-
-				count_flipped = 0
-
-				if (flipped_cards[0].value == flipped_cards[1].value) {
-
-					hide_cards_effect()
-				}
-
-				else{
-
-					rotate_start_position()
-				}
-
-
-			}, 400);
-		}
-	}
-
-}//end of match_cards
-
-function hide_cards_effect (argument) {
-
-	//are in "end memory game.js"
+function hide_cards_effect () {
+	// are in "end memory game.js"
 	clear_game(total_flipped += 2);
 
 	flipped_cards.shift();
-	flipped_cards.pop()
+	flipped_cards.pop();
 
-    //are in "level system.js"0
-    level_system();
+	// are in "level system.js"
+	level_system();
 
-    //are in "cash system.js"
-    gain_per_probability(Math.floor((Math.random() * 10) + 1));
-    
-    //gain_cash(10);
+	// are in "cash system.js"
+	gain_per_probability(Math.floor((Math.random() * 11) + 5));
 
-    //statistics.js
-    points("hit_point")
-     
+	// statistics.js
+	points("hit_point");
 }
 
-function rotate_card (argument) {
+function rotate_card (card) {
+	if (!card) return;
 
 	soundEffectCard();
-	argument.style.transform = "rotateY(180deg)";
-	argument.style.transition = ".2s";
-	argument.style.perspective = "2000px";
-	
-	count_flipped += 1
-	flipped_cards.push(argument)
+	card.style.transform = "rotateY(180deg)";
+	card.style.transition = ".2s";
+	card.style.perspective = "2000px";
+
+	count_flipped += 1;
+	flipped_cards.push(card);
 }
 
-function rotate_start_position (argument) {
-
-	
-
-	for (i in flipped_cards) {
+function rotate_start_position () {
+	for (var i = 0; i < flipped_cards.length; i++) {
 		flipped_cards[i].style.transform = "rotateY(0deg)";
 		flipped_cards[i].style.transition = ".2s";
 		flipped_cards[i].style.perspective = "2000px";
-		
 	}
-	
+
 	flipped_cards.shift();
-	flipped_cards.pop()
+	flipped_cards.pop();
 
-	//statistics.js
-    points("error_point")
+	// statistics.js
+	points("error_point");
 }
-

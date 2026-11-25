@@ -2,9 +2,9 @@ var images_array = [];
 var BG_card = "null";
 
 // shop deck
-if (localStorage.getItem("memory_game_cards_theme")	!= null
-	|| localStorage.getItem("memory_game_cards_theme")	!= "null"){
-	for (i in products_obj) {
+if (localStorage.getItem("memory_game_cards_theme") != null &&
+	localStorage.getItem("memory_game_cards_theme") != "null"){
+	for (var i in products_obj) {
 		if (products_obj[i].id == parseInt(localStorage.getItem("memory_game_cards_theme"))) {
 			images_array = products_obj[i].theme
 			BG_card = products_obj[i].img;
@@ -16,11 +16,11 @@ if (localStorage.getItem("memory_game_cards_theme")	!= null
 if(localStorage.getItem("memory_game_cards_theme")	== "null" ||
 	localStorage.getItem("memory_game_cards_theme")	== null){
 		
-	images_array = ["images/card.png", "images/card2.png", "images/card3.png",
-					"images/card4.png", "images/card5.png", "images/card6.png",
+	images_array = ["images/card.PNG", "images/card2.PNG", "images/card3.PNG",
+					"images/card4.PNG", "images/card5.PNG", "images/card6.PNG",
 
-					"images/card.png", "images/card2.png", "images/card3.png",
-					"images/card4.png", "images/card5.png", "images/card6.png"]
+					"images/card.PNG", "images/card2.PNG", "images/card3.PNG",
+					"images/card4.PNG", "images/card5.PNG", "images/card6.PNG"]
 	BG_card = "null";
 }
 
@@ -29,7 +29,7 @@ var cards_array = []
 function create_cards (argument) {
 	images_array.sort(function(a, b){return 0.5 - Math.random()});
 
-	for (i in images_array) {
+	for (var i in images_array) {
 	
 	var cards_container = document.getElementById("cards_container");
 
@@ -83,8 +83,9 @@ function back_face_cards (argument) {
 
 	setTimeout(function(){
 
-		for (var i = 0; i < document.getElementsByClassName("cards").length; i++){
-			document.getElementsByClassName("cards")[i].style.transform = "rotateY(0deg)";
+		var cards = document.getElementsByClassName("cards");
+		for (var i = 0; i < cards.length; i++){
+			cards[i].style.transform = "rotateY(0deg)";
 		}
 
 		timer();

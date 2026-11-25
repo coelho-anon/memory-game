@@ -1,5 +1,5 @@
 function cards_products (argument) {
-	for (i in products_obj) {
+	for (var i = 0; i < products_obj.length; i++) {
 
 		var row_products = document.getElementById("row_products");
 
@@ -18,7 +18,7 @@ function cards_products (argument) {
 
 				if (localStorage.getItem("bag").length > 0) {
 					let bag_counter = 0;
-					for (z in localStorage.getItem("bag").split(",")) {
+					for (var z = 0; z < localStorage.getItem("bag").split(",").length; z++) {
 						
 						if (parseInt(products_elements_array[i].title) == parseInt(localStorage.getItem("bag").split(",")[z])){
 
@@ -108,7 +108,7 @@ function cards_products (argument) {
 				use_item.addEventListener("click", change_theme);
 
 			if (parseInt(qtd_item.innerHTML) > 0) {
-				for (y in products_elements_array) {
+				for (var y = 0; y < products_elements_array.length; y++) {
 					if (products_obj[y].equipe == true 
 						&& products_obj[y].id == parseInt(cards.title)){
 
@@ -127,49 +127,37 @@ function cards_products (argument) {
 
 cards_products();
 
-function buy_item (argument) {
+function buy_item (event) {
+	var button = event.currentTarget;
+	var card = button.closest(".cards");
+	if (!button || !card) return;
 
-	// when player gold is >= to item price
-	if (parseFloat(localStorage.getItem("memory_game_gold")) >= parseFloat(argument.toElement.innerHTML)) {
+	var price = parseInt(button.textContent, 10) || 0;
+	var currentGold = parseInt(localStorage.getItem("memory_game_gold"), 10) || 0;
 
-		// update atual gold to new gold in local storage. (gold - item price)
-		localStorage.setItem("memory_game_gold", 
-			parseFloat(document.getElementById("cash_number").innerHTML) - parseFloat(argument.toElement.innerHTML))
-		// update atual gold to new gold in player window.
-		document.getElementById("cash_number").innerHTML = localStorage.getItem("memory_game_gold")
-		message_popUp_snackbar("-"+argument.toElement.innerHTML)
-		// if got some item on bag, add more one item, like .push() method
-		if (localStorage.getItem("bag").length > 0) {
+	if (currentGold >= price) {
+		var newGold = currentGold - price;
+		localStorage.setItem("memory_game_gold", newGold);
+		var cashNumber = document.getElementById("cash_number");
+		if (cashNumber) cashNumber.textContent = newGold;
 
-			// add a new item in bag and add a new value in the last separeted by ","
-			localStorage.setItem("bag", localStorage.getItem("bag")+","+argument.toElement.parentNode.parentNode.title)
-			// update how much of this item the player got.
-			argument.toElement.parentNode.parentNode.firstChild.firstChild.innerHTML = parseInt(argument.toElement.parentNode.parentNode.firstChild.firstChild.innerHTML) + 1;
-			
-		}
+		message_popUp_snackbar("-" + price + " gold");
 
-		else {
-			// add a new item in bag and add a new value
-			localStorage.setItem("bag", argument.toElement.parentNode.parentNode.title)
-			// update how much of this item the player got.
-			argument.toElement.parentNode.parentNode.firstChild.firstChild.innerHTML = parseInt(argument.toElement.parentNode.parentNode.firstChild.firstChild.innerHTML) + 1;
-			
-		}
+		var bag = localStorage.getItem("bag") || "";
+		localStorage.setItem("bag", bag ? bag + "," + card.title : card.title);
 
-		
+		var quantity = card.querySelector(".qtd_item");
+		if (quantity) quantity.textContent = (parseInt(quantity.textContent, 10) || 0) + 1;
 
-		for (i in products_obj) {
-			if (products_obj[i].equipe == true
-				&& products_obj[i].id == parseInt(argument.toElement.parentNode.parentNode.title)) {
-				// show the button "use" if item is useable
-				argument.toElement.nextSibling.style.display = 'initial';
+		var itemId = parseInt(card.title, 10);
+		for (var i = 0; i < products_obj.length; i++) {
+			if (products_obj[i].equipe === true && products_obj[i].id === itemId) {
+				var useButton = card.querySelector(".use_item");
+				if (useButton) useButton.style.display = "initial";
+				break;
 			}
-
 		}
-
-	}
-
-	else {
-		message_popUp_snackbar("Insuficient money")
+	} else {
+		message_popUp_snackbar("Insufficient gold");
 	}
 }

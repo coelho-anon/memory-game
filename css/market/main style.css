@@ -116,3 +116,16 @@
 					cursor: pointer;
 				}
 
+
+
+/* Active section in the market */
+.menu_btn.active {
+	background-color: #d4af37;
+	color: #10213d;
+	box-shadow: inset 0 -5px 0 rgba(16, 33, 61, .45);
+	font-weight: 700;
+}
+
+.menu_btn.active:hover {
+	background-color: #e4c65a;
+}

@@ -24,7 +24,7 @@ function level_system (argument) {
 		localStorage.setItem("memory_game_level_number", parseInt(level.innerHTML))
 
 		//are in "cash system.js"
-	    gain_per_probability(Math.floor((Math.random() * 100) + 1));
+	    gain_per_probability(Math.floor((Math.random() * 26) + 25));
 	    //gain_cash(10);
 
 		progress_level.style.width =  (old_progress + progression) - 100+'%';

@@ -1,40 +1,26 @@
-function xp_power_up_effect (argument) {
-	// power up of xp.
-	if (argument.toElement.value == "xp") {
-		for (i in power_up_effects) {
-			if (power_up_effects[i].type == "xp") {
+function xp_power_up_effect (event) {
+    var button = event.currentTarget;
+    if (!button || button.value !== "xp") return;
 
-				let effect_duration = power_up_effects[i].duration;
-				let double_xp_counter = setInterval(function(){
+    for (var i = 0; i < power_up_effects.length; i++) {
+        if (power_up_effects[i].type === "xp") {
+            var effect_duration = power_up_effects[i].duration;
+            var multiple = power_up_effects[i].multiple;
 
-					xp_power_up = true;
-					xp_power_up_multiple = power_up_effects[i].multiple;
+            xp_power_up = true;
+            xp_power_up_multiple = multiple;
 
-					effect_duration -= 1;
-					if (effect_duration <= 0) {
+            var double_xp_counter = setInterval(function () {
+                effect_duration -= 1;
+                if (effect_duration <= 0 || end_game_completly === true) {
+                    clearInterval(double_xp_counter);
+                    xp_power_up = false;
+                    xp_power_up_multiple = 0;
+                }
+            }, 1000);
 
-						clearInterval(double_xp_counter);
-						xp_power_up = false;
-						xp_power_up_multiple = 0;
-					}
-
-				}, 1000);
-
-				// update the local storage removing one power up
-				let update_bag = localStorage.getItem("bag").split(",")
-				update_bag.splice(update_bag.indexOf(argument.toElement.title,0), 1);
-				localStorage.setItem("bag", update_bag)
-
-				// remove the power up from html
-				if (parseInt(argument.toElement.innerHTML) == 1) {
-					argument.toElement.style.display = 'none';
-				}
-				// update how much power up of "time" player got
-				else {
-					argument.toElement.innerHTML = parseInt(argument.toElement.innerHTML) - 1;
-				}
-				
-			}
-		}
-	}
+            consume_power_up(button);
+            return;
+        }
+    }
 }

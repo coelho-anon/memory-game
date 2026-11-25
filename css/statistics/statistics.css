@@ -103,18 +103,18 @@ body{
 			}
 
 			#hit_points_container .head_card{
-				background-image: url('246x0w.png');
+				background-image: url('../../images/statistics/246x0w.png');
 			}
 
 			#error_points_container .head_card{
-				background-image: url('brain.jpg');
+				background-image: url('../../images/statistics/brain.jpg');
 			}
 			#error_points_container .footer_card{
-				background-image: url('down.png');
+				background-image: url('../../images/statistics/down.png');
 			}
 
 			#speed_points_container .head_card{
-				background-image: url('train.jpg');
+				background-image: url('../../images/statistics/train.jpg');
 			}
 
 			.body_card{
@@ -136,7 +136,7 @@ body{
 				background-size: 20%;
 				background-position: 10%;
 				background-repeat: no-repeat;
-				background-image: url('up.png');
+				background-image: url('../../images/statistics/up.png');
 			}
 
 
@@ -158,7 +158,7 @@ body{
 	}
 
 	#row_end_game_gains{
-		background-image: url('img.png');
+		background-image: url('../../images/statistics/img.png');
 		width: 100%;
 		height: 50%;
 
