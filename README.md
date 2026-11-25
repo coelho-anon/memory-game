@@ -3,8 +3,7 @@
 Um jogo da memória desenvolvido como projeto pessoal para praticar desenvolvimento web, lógica de programação, JavaScript e criação de interfaces interativas.
 
 ## 🎮 Jogue agora
-
-### [ACESSAR O JOGO ONLINE](https://cheerful-figolla-c5f801.netlify.app)
+<a href="https://cheerful-figolla-c5f801.netlify.app" target="_blank" rel="noopener noreferrer">### [ACESSAR O JOGO ONLINE]</a>
 
 O projeto está disponível para jogar diretamente pelo navegador, sem necessidade de instalação.
 
