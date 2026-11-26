@@ -4,7 +4,11 @@ Um jogo da memória desenvolvido como projeto pessoal para praticar desenvolvime
 
 ## 🎮 Jogue agora
 
-### [ACESSAR O JOGO ONLINE](https://cheerful-figolla-c5f801.netlify.app)
+<a href="https://cheerful-figolla-c5f801.netlify.app" target="_blank">
+  <strong>ACESSAR O JOGO ONLINE</strong>
+</a>
+
+Acesse a versão online do Memory Game diretamente pelo navegador.
 
 O projeto está disponível para jogar diretamente pelo navegador, sem necessidade de instalação.
 
