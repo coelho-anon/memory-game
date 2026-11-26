@@ -31,6 +31,22 @@ O projeto foi desenvolvido inicialmente para funcionar em computador e, posterio
 - Interface temática e responsiva
 - Armazenamento de informações do jogador no navegador
 
+## Screenshots
+
+### Home
+
+![Home](screenshots/home.png)
+
+### Gameplay
+
+![Gameplay 1](screenshots/gameplay%201.png)
+
+![Gameplay 2](screenshots/gameplay%202.png)
+
+### Market
+
+![Market](screenshots/market.png)
+
 ## Principais melhorias
 
 A versão atual inclui diversas correções e melhorias, entre elas:
