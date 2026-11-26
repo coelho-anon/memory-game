@@ -33,19 +33,12 @@ O projeto foi desenvolvido inicialmente para funcionar em computador e, posterio
 
 ## Screenshots
 
-### Home
-
-![Home](screenshots/home.png)
-
-### Gameplay
-
-![Gameplay 1](screenshots/gameplay%201.png)
-
-![Gameplay 2](screenshots/gameplay%202.png)
-
-### Market
-
-![Market](screenshots/market.png)
+<p align="center">
+  <img src="screenshots/home.png" width="24%">
+  <img src="screenshots/gameplay%201.png" width="24%">
+  <img src="screenshots/gameplay%202.png" width="24%">
+  <img src="screenshots/market.png" width="24%">
+</p>
 
 ## Principais melhorias
 
