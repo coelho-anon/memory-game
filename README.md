@@ -12,6 +12,15 @@ Acesse a versão online do Memory Game diretamente pelo navegador.
 
 O projeto está disponível para jogar diretamente pelo navegador, sem necessidade de instalação.
 
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/home.png" width="24%">
+  <img src="screenshots/gameplay%201.png" width="24%">
+  <img src="screenshots/gameplay%202.png" width="24%">
+  <img src="screenshots/market.png" width="24%">
+</p>
+
 ## Sobre o projeto
 
 O Memory Game é um jogo de cartas baseado no clássico jogo da memória. O jogador deve encontrar os pares de cartas enquanto utiliza diferentes recursos disponíveis durante a partida.
@@ -30,15 +39,6 @@ O projeto foi desenvolvido inicialmente para funcionar em computador e, posterio
 - Tela de créditos
 - Interface temática e responsiva
 - Armazenamento de informações do jogador no navegador
-
-## Screenshots
-
-<p align="center">
-  <img src="screenshots/home.png" width="24%">
-  <img src="screenshots/gameplay%201.png" width="24%">
-  <img src="screenshots/gameplay%202.png" width="24%">
-  <img src="screenshots/market.png" width="24%">
-</p>
 
 ## Principais melhorias
 
